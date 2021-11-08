@@ -1,0 +1,20 @@
+<div class="container text-center game-container">
+  <h1 class="mb-5">New Game</h1>
+  <div class="row justify-content-between">
+    <% @letters.each {|char|%>
+      <div class="col-1 bg-primary char-box row justify-content-center align-items-center pd-0"><div class=""><%=char%></div></div>
+    <%}%>
+  </div>
+  <p class="mt-5 prompt-label">What is the longest word you can find?</p>
+  <form action="/score" method="post" class="row justify-content-start align-items-end">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters_arr, @letters %>
+    <div class="col-11 form-row">
+      <input type="text" name="word_input" class="form-control" id="word_input">
+    </div>
+    <div class="col-1 form-row">
+      <button type="submit" class="btn btn-light border play-btn" style="width: 100%;">Play</button>
+    </div>
+  </form>
+
+</div>

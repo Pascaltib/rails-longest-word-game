@@ -1,0 +1,13 @@
+<div class="container text-center game-container">
+  <h1 class="mb-5">Result</h1>
+  <p class="game-result-p">
+    <% if @result[:game_state] == 0 %>
+      Sorry but <strong><%= @output[:word_input] %></strong> is not an English word. Your score is: <%= @result[:score]%>
+    <% elsif  @result[:game_state] == 1 %>
+      Sorry but <strong><%= @output[:word_input] %></strong> can't be built out of "<%= @output[:letters_arr] %>". Your score is: <%= @result[:score]%>
+    <% else %>
+      <strong>Congratulations!</strong> "<%= @output[:word_input] %>" is valid! Your score is: <%= @result[:score]%>
+    <% end %>
+  </p>
+  <button class="btn btn-lg btn-primary"><%= link_to "Play again", new_path, class: "play-again-btn" %></button>
+</div>
